@@ -2,3 +2,4 @@ Swift:
 Objects interact with each other
 Var (can be change) think of varying
 Let (constants) can not be changed
+(Try to use let as much as you can unless change is needed)
