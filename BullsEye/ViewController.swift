@@ -26,6 +26,27 @@ class ViewController: UIViewController {
         let roundValue = _slider.value.rounded()
         currentValue = Int(roundValue)
         startNewRound()
+        
+//        let thumbImageNormal = UIImage(named: "SliderThumb-Normal")!
+        let thumbImageNormal = #imageLiteral(resourceName: "SliderThumb-Normal")
+        _slider.setThumbImage(thumbImageNormal, for: .normal)
+        
+        let thumbImageHighlighted = #imageLiteral(resourceName: "SliderThumb-Highlighted")
+        _slider.setThumbImage(thumbImageHighlighted, for: .highlighted)
+        
+        let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        
+        let trackLeftImage = #imageLiteral(resourceName: "SliderTrackLeft")
+        let trackLeftResizable = trackLeftImage.resizableImage(withCapInsets: insets)
+        _slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+        
+        let trackRightImage = #imageLiteral(resourceName: "SmallButton")
+        let trackRightResizable = trackRightImage.resizableImage(withCapInsets: insets)
+        _slider.setMaximumTrackImage(trackRightResizable, for: .normal)
+        
+        
+        
+        
     }
     
     @IBAction func sliderMoved(_slider: UISlider){
@@ -69,9 +90,9 @@ class ViewController: UIViewController {
             titleMessage = "Perfect!"
             pointValue = 200
         }
-        else if differenceValue <= 10 {
+        else if differenceValue <= 20 {
             titleMessage = "You were close to the target!"
-            pointValue += 50
+            pointValue = 50 + differenceValue + currentValue
         }
         else {
             titleMessage = "You were far off the target!"

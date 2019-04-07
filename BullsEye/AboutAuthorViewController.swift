@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import WebKit
 
 class AboutAuthorViewController: UIViewController {
 
+    @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+      
         // Do any additional setup after loading the view.
     }
     
     @IBAction func closeViewController() {
         dismiss(animated: true, completion: nil)
     }
-
+    
 }
